@@ -1,5 +1,5 @@
 node {
-    docker.image('node:lts-buster-slim').inside('-p 3000:3000') {
+    docker.image('node:lts-buster-slim').inside('-p 3000:3000 -v /var/jenkins_home/workspace:/var/jenkins_home/workspace') {
         withEnv(['CI=true']) {
             stage('build') {
                 sh 'npm install'
